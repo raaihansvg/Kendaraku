@@ -24,33 +24,26 @@ public class FleetManager {
     /*FUNGSI :
     Mobil yang masuk duluan akan keluar duluan  */
     public Mobil dequeue() {
-
         if (Mobil.isEmpty()) {
             return null;
         }
-
         nbelm--;
         return Mobil.poll();
     }
 
     public Mobil getMobil() {
-
         if (Mobil.isEmpty()) {
             return null;
         }
-
         return Mobil.peek();
     }
 
     public Mobil getMobilById(String idMobil) {
-
         for (Mobil mobil : Mobil) {
-
             if (mobil.getIdMobil().equalsIgnoreCase(idMobil)) {
                 return mobil;
             }
         }
-
         return null;
     }
 
@@ -63,12 +56,10 @@ public class FleetManager {
     }
 
     public void showMobil() {
-
         if (Mobil.isEmpty()) {
             System.out.println("Mobil kosong");
             return;
         }
-
         System.out.println("=== DAFTAR Mobil ===");
 
         for (Mobil mobil : Mobil) {
@@ -78,22 +69,15 @@ public class FleetManager {
 
 
     /*Menampilkan Mobil yang tersedia dan STATUS RENTAL */
-    public void showMobilTersedia() {
-        
+    public void showMobilTersedia() {       
         boolean ada = false;
-
         System.out.println("=== MOBIL TERSEDIA ===");
-
         for (Mobil mobil : Mobil) {
-
             if (mobil.getStatus() == StatusMobil.TERSEDIA) {
-
                 System.out.println(mobil);
-
                 ada = true;
             }
         }
-
         if (!ada) {
             System.out.println("Tidak ada mobil tersedia");
         }

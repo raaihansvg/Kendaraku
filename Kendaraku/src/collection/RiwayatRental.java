@@ -29,46 +29,34 @@ public class RiwayatRental {
     }
 
     public Transaksi cari(String idTransaksi) {
-
         for (Transaksi transaksi : daftarTransaksi) {
-
             if (transaksi.getIdTransaksi().equalsIgnoreCase(idTransaksi)) {
-
                 return transaksi;
             }
         }
-
         return null;
     }
 
     public boolean isMember(Transaksi transaksi) {
-
         return daftarTransaksi.contains(transaksi);
     }
 
     public int countTransaksi() {
-
         return nbelm;
     }
 
     public void showSemua() {
-
         if (daftarTransaksi.isEmpty()) {
-
             System.out.println("Belum ada transaksi");
             return;
         }
-
         System.out.println("=== RIWAYAT RENTAL ===");
-
         for (Transaksi transaksi : daftarTransaksi) {
-
             System.out.println(transaksi);
         }
     }
 
     public List<Transaksi> getDaftarTransaksi() {
-
         return daftarTransaksi;
     }
 }

@@ -2,7 +2,7 @@ package service;
 
 import java.util.ArrayList;
 import model.Mobil;
-import enumtype.StatusMobil;
+import model.StatusMobil;
 
 public class MobilService {
     private ArrayList<Mobil> daftarMobil = new ArrayList<>();
