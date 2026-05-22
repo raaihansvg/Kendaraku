@@ -4,7 +4,7 @@
 
 package model;
 
-interface Priceable {
+public interface Priceable {
     /* Method */
     public double hitungHarga();
 }
