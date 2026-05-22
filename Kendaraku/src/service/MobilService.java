@@ -43,6 +43,7 @@ public class MobilService {
         }
     }
 
+    // Memperbarui status mobil
     public void updateStatus(String idMobil, StatusMobil statusBaru) {
         Mobil mobil = cariMobil(idMobil);
         if(mobil != null){
@@ -53,6 +54,7 @@ public class MobilService {
         }
     }
 
+    // menghapus data mobil
     public void hapusMobil(String idMobil){
         Mobil mobil = cariMobil(idMobil);
         if(mobil != null){
