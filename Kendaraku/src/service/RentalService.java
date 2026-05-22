@@ -37,6 +37,7 @@ public class RentalService{
         }
     }
 
+    // Mengembalikan mobil yang sudah selesai disewa
     public void selesaiRental(Mobil mobil){
         mobil.setStatus(StatusMobil.TERSEDIA);
         System.out.println("Mobil sudah dikembalikan");
