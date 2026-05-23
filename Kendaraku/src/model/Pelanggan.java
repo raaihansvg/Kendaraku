@@ -66,8 +66,8 @@ public class Pelanggan{
 
     /* method tambahan */
     /* Menambahkan transaksi ke riwayat pelanggan */
-    public void tambahRiwayat(Transaksi Transaksi){
-        riwayatTransaksi.add(Transaksi);
+    public void tambahRiwayat(Transaksi transaksi){
+        riwayatTransaksi.add(transaksi);
     }
 
     /* Output */
@@ -75,7 +75,7 @@ public class Pelanggan{
     public String toString(){
         return """
                 == Data Pelanggan ==
-                Id Pelanngan    : %s
+                Id Pelanggan    : %s
                 Nama Pelanggan  : %s
                 No Telp         : %s
                 Email           : %s
