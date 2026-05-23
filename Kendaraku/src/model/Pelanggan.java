@@ -35,7 +35,7 @@ public class Pelanggan{
         return noTelp;
     }
 
-    public String email(){
+    public String getEmail(){
         return email;
     }
 
