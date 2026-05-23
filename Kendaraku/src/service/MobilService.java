@@ -1,17 +1,21 @@
 package service;
 
 import java.util.*;
+
+import database.MySQLMobilDAO;
+import database.MySqlUtility;
 import model.Mobil;
 import model.StatusMobil;
 
 public class MobilService{
     /* Atribut */
     private List<Mobil> daftarMobil;
-
+    private MySQLMobilDAO dao = new MySQLMobilDAO(new MySqlUtility());
     /* Konstruktor */
     public MobilService(){
         daftarMobil = new ArrayList<>();
     }
+    
 
     /* getter */
     public List<Mobil> getDaftarMobil(){
@@ -23,6 +27,7 @@ public class MobilService{
     /* menambahkan mobil baru */
     public void tambahMobil(Mobil mobil){
         daftarMobil.add(mobil);
+        dao.save(mobil);
         System.out.println("Mobil berhasil ditambahkan: " + mobil.getMerk() + " " + mobil.getModel());
     }
 

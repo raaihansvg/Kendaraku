@@ -1,12 +1,16 @@
 package service;
 
 import java.util.*;
+
+import database.MySQLPelangganDAO;
+import database.MySqlUtility;
 import model.Pelanggan;
 
 public class PelangganService {
 
     /* Atribut */
     private List<Pelanggan> daftarPelanggan;
+    private MySQLPelangganDAO dao = new MySQLPelangganDAO(new MySqlUtility());
 
     /* Konstruktor */
     public PelangganService(){
@@ -21,6 +25,7 @@ public class PelangganService {
     /* Menambahkan data pelangan baru */
     public void tambahPelanggan(Pelanggan pelanggan){
         daftarPelanggan.add(pelanggan);
+        dao.save(pelanggan);
         System.out.println("Pelanggan berhasil didaftarkan: " + pelanggan.getNama());
     }
 
