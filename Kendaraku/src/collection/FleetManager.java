@@ -1,85 +1,86 @@
 package collection;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 import model.Mobil;
 import model.StatusMobil;
 
 public class FleetManager {
 
-    private Queue<Mobil> Mobil;
+    /* Atribut */
+    private Queue<Mobil> armada;
     private int nbelm;
 
+    /* Konstruktor */
     public FleetManager() {
-        Mobil = new LinkedList<>();
-        nbelm = 0;
+        armada = new LinkedList<>();
+        nbelm  = 0;
     }
 
+    /* Menambahkan mobil ke antrian armada */
     public void enqueue(Mobil mobil) {
-        Mobil.add(mobil);
+        armada.add(mobil);
         nbelm++;
     }
 
-
-    /*FUNGSI :
-    Mobil yang masuk duluan akan keluar duluan  */
-    public Mobil dequeue() {
-        if (Mobil.isEmpty()) {
-            return null;
-        }
-        nbelm--;
-        return Mobil.poll();
+    /* Mobil yang masuk duluan akan keluar duluan (FIFO) */
+    public Mobil dequeue(){
+            if(armada.isEmpty()){
+                return null;
+            }else{
+                nbelm --;
+                return armada.poll();
+            }
     }
 
-    public Mobil getMobil() {
-        if (Mobil.isEmpty()) {
+    /* Melihat mobil terdepan tanpa mengeluarkannya */
+    public Mobil getMobilTerdepan() {
+        if (armada.isEmpty()){
             return null;
+        }else{
+            return armada.peek();
         }
-        return Mobil.peek();
     }
 
+    /* Mencari mobil berdasarkan ID */
     public Mobil getMobilById(String idMobil) {
-        for (Mobil mobil : Mobil) {
+        for (Mobil mobil : armada) {
             if (mobil.getIdMobil().equalsIgnoreCase(idMobil)) {
                 return mobil;
             }
         }
         return null;
     }
-
+    /* Mengecek apakah suatu mobil tersedia */
     public boolean isMember(Mobil mobil) {
-        return Mobil.contains(mobil);
+        return armada.contains(mobil);
     }
-
+    /* Menghitung jumlah unit mobil */
     public int countMobil() {
         return nbelm;
     }
 
-    public void showMobil() {
-        if (Mobil.isEmpty()) {
-            System.out.println("Mobil kosong");
+    /* Menampilkan seluruh armada */
+    public void showArmada() {
+        if (armada.isEmpty()) {
+            System.out.println("Armada kosong");
             return;
         }
-        System.out.println("=== DAFTAR Mobil ===");
-
-        for (Mobil mobil : Mobil) {
+        System.out.println("=== DAFTAR ARMADA ===");
+        for (Mobil mobil : armada) {
             System.out.println(mobil);
         }
     }
 
-
-    /*Menampilkan Mobil yang tersedia dan STATUS RENTAL */
-    public void showMobilTersedia() {       
+    /* Menampilkan hanya mobil yang berstatus tersedia */
+    public void showMobilTersedia() {
         boolean ada = false;
         System.out.println("=== MOBIL TERSEDIA ===");
-        for (Mobil mobil : Mobil) {
+        for (Mobil mobil : armada) {
             if (mobil.getStatus() == StatusMobil.TERSEDIA) {
                 System.out.println(mobil);
                 ada = true;
             }
         }
-        if (!ada) {
-            System.out.println("Tidak ada mobil tersedia");
-        }
+        if (!ada) System.out.println("Tidak ada mobil tersedia");
     }
 }
