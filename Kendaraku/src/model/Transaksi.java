@@ -13,13 +13,13 @@ public class Transaksi{
     private double totalBiaya;
 
     /* Konstruktor */
-    public Transaksi(String idTransaksi,Pelanggan pelanggan,Mobil mobil,String tanggalMulai,String tanggalSelesai,double totalBiaya){
+    public Transaksi(String idTransaksi,Pelanggan pelanggan,Mobil mobil,String tanggalMulai,String tanggalSelesai){
         this.idTransaksi  = idTransaksi;
         this.pelanggan = pelanggan;
         this.mobil = mobil;
         this.tanggalMulai = tanggalMulai;
         this.tanggalSelesai = tanggalSelesai;
-        this.totalBiaya = totalBiaya;
+        this.totalBiaya = hitungBiaya();
     }
 
     /* Getter */

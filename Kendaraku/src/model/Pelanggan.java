@@ -79,7 +79,7 @@ public class Pelanggan{
                 Nama Pelanggan  : %s
                 No Telp         : %s
                 Email           : %s
-                Transaksi       : %s
+                Jumlah Transaksi: %s
                 """.formatted(
                     idPelanggan,
                     nama,
