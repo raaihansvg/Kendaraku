@@ -1,68 +1,93 @@
 package service;
 
-import java.util.ArrayList;
+import java.util.*;
 import model.Mobil;
 import model.StatusMobil;
 
-public class MobilService {
-    private ArrayList<Mobil> daftarMobil = new ArrayList<>();
+public class MobilService{
+    /* Atribut */
+    private List<Mobil> daftarMobil;
 
-    // Method Tambah Mobil
-    public void tambahMobil(Mobil mobil) {
-        daftarMobil.add(mobil);
-        System.out.println("Mobil Berhasil di Tambahkan!");
+    /* Konstruktor */
+    public MobilService(){
+        daftarMobil = new ArrayList<>();
     }
 
-    // Menampilkan Daftar Semua Mobil
+    /* getter */
+    public List<Mobil> getDaftarMobil(){
+        return daftarMobil;
+    }
+
+    /* Method */
+
+    /* menambahkan mobil baru */
+    public void tambahMobil(Mobil mobil){
+        daftarMobil.add(mobil);
+        System.out.println("Mobil berhasil ditambahkan: " + mobil.getMerk() + " " + mobil.getModel());
+    }
+
+    /* Menampilkan semua list(daftar) mobil yang sudah ada */
     public void tampilMobil(){
         if(daftarMobil.isEmpty()){
-            System.out.println("Mobil Kosong");
+            System.out.println("Daftar mobil kosong");
             return;
-        }
-        for(Mobil mobil : daftarMobil){
-            System.out.println(mobil);
-        }
-    }
-
-    // cari mobil berdasarkan id
-    public Mobil cariMobil(String idMobil){
-        for (Mobil mobil : daftarMobil) {
-            if (mobil.getIdMobil().equals(idMobil)){
-                return mobil;
-            }
-
-        } return null;
-    }
-
-    // Menampilkan mobil yang hanya berstatus tersedia (siap untuk disewa)
-    public void tampilMobilTersedia(){
-        for(Mobil mobil : daftarMobil) {
-            if(mobil.getStatus() == StatusMobil.TERSEDIA){
+        }else{
+            System.out.println(" == DAFTAR SEMUA MOBIL == ");
+            for(Mobil mobil : daftarMobil){
                 System.out.println(mobil);
             }
         }
     }
 
-    // Memperbarui status mobil
-    public void updateStatus(String idMobil, StatusMobil statusBaru) {
+    /* Mencari mobil berdasarkan IdMobil */
+    public Mobil cariMobil(String idMobil){
+        for(Mobil mobil : daftarMobil){
+            if(mobil.getIdMobil().equals(idMobil)){
+                return mobil;
+            }
+        }
+        return null;
+    }
+
+    /* Menampikan mobil yang hanya tersedia */
+    public void tampilMobilTersedia(){
+        boolean adaMobil = false;
+        System.out.println(" == DAFTAR MOBIL YANG TERSEDIA == ");
+        
+        for(Mobil mobil : daftarMobil){
+            if(mobil.getStatus() == StatusMobil.TERSEDIA){
+                System.out.println(mobil);
+                adaMobil = true;
+            }
+        }
+        if(! adaMobil){
+            System.out.println("Tidak ada mobil yang tersedia saat ini");
+        }
+    }
+    /* Memperbarui status mobil */
+    public void updateStatus(String idMobil,StatusMobil status){
         Mobil mobil = cariMobil(idMobil);
         if(mobil != null){
-            mobil.setStatus(statusBaru);
-            System.out.println("Status mobil berhasil diupdate");
+            mobil.setStatus(status);
+            System.out.println("Status mobil " + idMobil + " diperbarui menjadi " + status);
         }else{
-            System.out.println("Mobil tidak ditemukan");
+            System.out.println("Mobil dengan ID " + idMobil + " Tidak ditemukan");
         }
     }
 
-    // menghapus data mobil
+    /* Menghapus data mobil */
     public void hapusMobil(String idMobil){
         Mobil mobil = cariMobil(idMobil);
         if(mobil != null){
-            daftarMobil.remove(mobil);
-            System.out.println("Mobil dihapus");
+            if (mobil.getStatus() == StatusMobil.DISEWA){
+                System.out.println("Mobil sedang disewa tidak bisa dihapus");
+                return;
+            }else{
+                daftarMobil.remove(mobil);
+                System.out.println("Mobil dengan idMobil " + idMobil + " berhasil dihapus");
+            }
         }else{
-            System.out.println("Mobil tidak ada");
+            System.out.println("Mobil dengan idMobil " + idMobil + " tidak ditemukan");
         }
     }
 }
-
