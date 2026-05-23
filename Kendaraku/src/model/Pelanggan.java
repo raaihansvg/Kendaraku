@@ -31,7 +31,7 @@ public class Pelanggan{
         return nama;
     }
 
-    public String noTelp(){
+    public String getNoTelp(){
         return noTelp;
     }
 
