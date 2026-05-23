@@ -1,12 +1,13 @@
 package generik;
 
 public class Datum<T> {
+    /* atribut */
     private T isi;
-
+    /* Konstruktor */
     public Datum(T isi) {
         this.isi = isi;
     }
-
+    /* Method */
     public T getIsi() {
         return isi;
     }

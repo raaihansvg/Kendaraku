@@ -2,6 +2,7 @@ package generik;
 import model.Priceable;
 
 public class OperatorGenerik<T extends Priceable> {
+    /* Method */
     public void tukar(Data<T> data, int indexPertama, int indexKedua) {
         T isiPertama = data.getIsi(indexPertama);
         T isiKedua = data.getIsi(indexKedua);

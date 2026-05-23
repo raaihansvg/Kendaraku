@@ -97,5 +97,4 @@ public class RentalService{
         }
         return total;
     }
-    /* simpan seluruh transaksi ke database(dibuat abis bikin database) */
 }

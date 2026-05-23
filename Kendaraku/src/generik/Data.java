@@ -2,16 +2,16 @@ package generik;
 
 @SuppressWarnings("unchecked")
 public class Data<T> {
+    /* Atribut */
     private static final int kapasitasAsli = 100;
-
     private Datum<T>[] daftarData;
     private int jumlahData;
-
+    /* Konstruktor */
     public Data() {
         daftarData = (Datum<T>[]) new Datum[kapasitasAsli];
         jumlahData = 0;
     }
-
+    /* Getter */
     public int getJumlahData() {
         return jumlahData;
     }
@@ -28,9 +28,10 @@ public class Data<T> {
         return jumlahData == daftarData.length;
     }
 
+    /* method */
     public void tambah(T isi) {
         if (isPenuh()) {
-            System.out.println("Data sudah penuh");
+            System.out.println("Data sudah penuh!");
             return;
         }
 
