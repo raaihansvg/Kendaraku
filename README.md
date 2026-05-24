@@ -1,6 +1,8 @@
 # Kendaraku
 
-Java-based vehicle rental system with data storage using MySQL.
+A Java-based vehicle rental management system with MySQL database integration.
+Kendaraku helps manage vehicle fleets, customer data, and rental transactions efficiently through a simple console based application built using Java and MySQL.
+
 
 ## Requirements & Library
 
