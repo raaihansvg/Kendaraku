@@ -1,6 +1,6 @@
 # Kendaraku
 
-Sistem rental kendaraan berbasis Java dengan penyimpanan data menggunakan MySQL.
+Java-based vehicle rental system with data storage using MySQL.
 
 ## Requirements & Library
 
