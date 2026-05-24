@@ -81,7 +81,7 @@ Sesuaikan password MySQL di `src/database/MysqlUtility.java`:
 ```java
 private static final String URL  = "jdbc:mysql://localhost:3306/kendaraku";
 private static final String USER = "root";
-private static final String PASS = "password_kamu";
+private static final String PASS = "password";
 ```
 
 ## How to Build
