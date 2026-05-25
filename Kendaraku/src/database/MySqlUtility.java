@@ -8,7 +8,7 @@ public class MySqlUtility {
 
     private static final String URL  = "jdbc:mysql://localhost:3306/kendaraku";
     private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String PASS = "r27l14e09_";
 
     private Connection connection;
 

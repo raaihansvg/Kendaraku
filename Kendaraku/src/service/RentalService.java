@@ -8,7 +8,7 @@ import model.Pelanggan;
 import model.StatusMobil;
 import model.Transaksi;
 
-import java.util.*;
+
 
 public class RentalService{
     /* Atribut */
